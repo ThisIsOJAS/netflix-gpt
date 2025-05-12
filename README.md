@@ -1,16 +1,19 @@
 # Netflix-GPT
 
 - Created app with Vite
-- configured Tailwind CSS
-- built Header
-- create Login form
-- create sign up form
+- Configured Tailwind CSS
+- Built Header
+- Routing added
+- Created Login form
+- Created sign up form
+- Form validation
+- useRef Hooks
 
 ## Features
 
 - Login/sign-up Page
-- > sign-in/sign-up form
-- > redirect to browse page
+- > Sign-in/sign-up form
+- > Redirect to browse page
 
 - Browse Page (after authentication)
 - > Header
