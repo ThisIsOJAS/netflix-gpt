@@ -1,11 +1,24 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-
+  // const [loading, setLoading] = useState(false);  // might use later for personal addition to avoid multi clicks
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -18,19 +31,81 @@ const Login = () => {
   const handleButtonClick = () => {
     // validate the form data
     const message = checkValidData(
-      name.current.value,
-      email.current.value,
-      password.current.value
+      isSignInForm ? null : name.current?.value,
+      // name.current?.value,
+      email.current?.value,
+      password.current?.value
     );
 
     setErrorMessage(message);
 
-    // console.log(email.current.value);
-    // console.log(password.current.value);
+    if (message) {
+      return;
+    }
+
+    // Sign In/Sign Up Logic here
+
+    if (!isSignInForm) {
+      // Sign Up Logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/42967977?v=4",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser; // when we create a new user, displayName and photoURL are not updated quickly hence we have to pass dispatch action again to create a new user on top of it using its firebase name "auth.currentUser"
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
+
+          // console.log(user);
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " : " + errorMessage);
+        });
+    } else {
+      // Sign In Logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " : " + errorMessage);
+        });
+    }
   };
 
   return (
-    <div>
+    <>
       <Header />
       <div className="absolute">
         <img
@@ -42,7 +117,7 @@ const Login = () => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="absolute py-4 px-8 bg-black/85 w-3/12 m-auto right-0 left-0 mt-28 rounded-lg flex flex-col text-white"
+        className="absolute py-4 px-8 bg-black/85 sm:w-1/2  xl:w-3/12 m-auto right-0 left-0 mt-28 rounded-lg flex flex-col text-white"
       >
         <h1 className="font-bold text-4xl mt-2 p-2">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -75,7 +150,7 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p
-          className="m-2 py-2 underline cursor-pointer"
+          className="m-2 py-2 underline cursor-pointer text-center"
           onClick={toggleSignInForm}
         >
           {isSignInForm
@@ -83,7 +158,7 @@ const Login = () => {
             : "Already a Netflix member? Sign In"}
         </p>
       </form>
-    </div>
+    </>
   );
 };
 
