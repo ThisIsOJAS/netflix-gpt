@@ -9,6 +9,10 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import {
+  NETFLIX_LOGIN_BACKGROUND,
+  USER_PROFILE_LOGO,
+} from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -29,7 +33,6 @@ const Login = () => {
     // validate the form data
     const message = checkValidData(
       isSignInForm ? null : name.current?.value,
-      // name.current?.value,
       email.current?.value,
       password.current?.value
     );
@@ -55,7 +58,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/42967977?v=4",
+            photoURL: USER_PROFILE_LOGO,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser; // when we create a new user, displayName and photoURL are not updated quickly hence we have to pass dispatch action again to create a new user on top of it using its firebase name "auth.currentUser"
@@ -100,10 +103,7 @@ const Login = () => {
     <>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/cb17c41d-6a67-4472-8b91-cca977e65276/web/IN-en-20250505-TRIFECTA-perspective_03ae1a85-5dcf-4d20-a8a6-1e61f7ef73cb_large.jpg"
-          alt="netflix-login-background"
-        />
+        <img src={NETFLIX_LOGIN_BACKGROUND} alt="netflix-login-background" />
       </div>
       <form
         onSubmit={(e) => {

@@ -45,3 +45,9 @@ export const checkValidData = (name, email, password) => {
 // Ojas Gupta
 // netflix@ojas.com
 // Netflixojas123#1
+
+// User 4
+
+// Tom Cruise
+// tomcruise@gmail.com
+// Tomcruise123#1

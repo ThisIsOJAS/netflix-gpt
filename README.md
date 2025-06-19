@@ -17,6 +17,18 @@
 - Added Update profile upon account creation
 - BugFix: Sign up user displayName and profile picture update
 - BugFix: If the user is not logged in, redirect them to login page and vice-versa
+- Unsubscribed to the onAuthStateChanged callback in Header
+- Add hardcoded files to constants.js (urls, photos, etc)
+- Register at TMBD and create an app over there to get access token
+- Get Data from TMBD now playing movies list API
+- Custom Hook for Now Playing Movies
+- Create Movie Slice
+- Update store with Movies Data
+- Planning for Main Container and Secondary Container
+- Fetch Data for Trailer Video
+- Update store with Trailer Data
+- Embedded the YouTube Video and made it autoplay, mute, reducedc controls, in loop and reduced branding
+- Tailwind to make Main Container as close to Netflix Design
 
 ## Features
 
@@ -30,6 +42,14 @@
 - > - > Trailer in background
 - > - > Title and Description
 - > - > - > Movies list
+
+- Browse Page Layout
+- > Main Container
+- > - > Video Background
+- > - > Video Title
+- > Secondary Container
+- > - > Movies List \* n
+- > - > - > Movie Card \* n
 
 - Netflix GPT
 - > search bar

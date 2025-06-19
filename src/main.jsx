@@ -6,9 +6,11 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Provider store={appStore}>
-      <App />
-    </Provider>
-  </StrictMode>
+  // <StrictMode>
+  <Provider store={appStore}>
+    <App />
+  </Provider>
+  // </StrictMode>
 );
+
+// wrap whole app and provider in <StrictMode> as it helps in development phase of app
