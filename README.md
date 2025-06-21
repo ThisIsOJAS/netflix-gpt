@@ -29,6 +29,12 @@
 - Update store with Trailer Data
 - Embedded the YouTube Video and made it autoplay, mute, reducedc controls, in loop and reduced branding
 - Tailwind to make Main Container as close to Netflix Design
+- Build Secondary Container
+- Build Movie List
+- Build Movie Card
+- TMDB Movie Image CDN URL
+- Improved HomePage Ui with Tailwind
+- Made 4 custom hooks for 4 different API fetched Movie Lists
 
 ## Features
 
