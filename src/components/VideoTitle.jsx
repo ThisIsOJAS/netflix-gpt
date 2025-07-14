@@ -2,8 +2,8 @@ const VideoTitle = ({ title, overview }) => {
   return (
     <div className="w-full aspect-video pt-[16%] px-12 absolute text-white bg-gradient-to-r from-black">
       <h1 className="text-6xl font-bold">{title}</h1>
-      <p className="py-6 text-lg w-1/4">{overview}</p>
-      <div className="">
+      <p className="pt-6 text-lg w-1/4 line-clamp-4">{overview}</p>
+      <div className="pt-6">
         <button className="bg-white text-black p-4 px-10 text-xl rounded-lg hover:opacity-50 cursor-pointer">
           <span style={{ fontFamily: "Arial, sans-serif" }}>&#9654;</span> Play{" "}
           {/* Span used to add the Play Symbol, no CSS here */}

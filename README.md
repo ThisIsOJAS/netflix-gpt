@@ -35,6 +35,10 @@
 - TMDB Movie Image CDN URL
 - Improved HomePage Ui with Tailwind
 - Made 4 custom hooks for 4 different API fetched Movie Lists
+- GPT Search Page
+- GPT Search Bar
+- (FEATURE) Multi-Language feature on GPT Search Page
+- Integrate GPT Api
 
 ## Features
 
