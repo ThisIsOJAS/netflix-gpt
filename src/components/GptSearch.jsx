@@ -8,7 +8,7 @@ const GptSearch = () => {
       <img
         src={NETFLIX_LOGIN_BACKGROUND}
         alt="netflix-login-background"
-        className="absolute -z-10"
+        className="fixed -z-10"
       />
       <GptSearchBar />
       <GptMovieSuggestions />

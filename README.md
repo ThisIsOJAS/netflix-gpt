@@ -38,7 +38,9 @@
 - GPT Search Page
 - GPT Search Bar
 - (FEATURE) Multi-Language feature on GPT Search Page
-- Integrate GPT Api
+- Integrate GPT/Gemini Api
+- Re-used MovieList component to display AI results
+- Used Memoization to reduce repeated API calls
 
 ## Features
 
