@@ -61,10 +61,14 @@ const Header = () => {
 
   return (
     <>
-      <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-        <img className="w-44" src={NETFLIX_LOGO} alt="netflix-logo" />
+      <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+        <img
+          className="w-44 mx-auto md:mx-0"
+          src={NETFLIX_LOGO}
+          alt="netflix-logo"
+        />
         {user && (
-          <div className="flex items-center gap-4">
+          <div className="flex justify-between md:items-center gap-4">
             {showGptSearch && (
               <select
                 className="py-2 pl-2 pr-4 rounded-sm border-2 border-amber-50 bg-red-700 text-white cursor-pointer"
@@ -137,11 +141,13 @@ const Header = () => {
               )}
             </button>
             <img
-              className="w-10"
+              className="hidden md:block w-10"
               src={user.photoURL}
               alt="netflix-profile-logo"
             />
-            <p className="text-white font-semibold">{user.displayName}</p>
+            <p className="hidden md:block text-white font-semibold">
+              {user.displayName}
+            </p>
             <button
               className="p-2 rounded-lg bg-black text-white border-2 border-red-600 hover:bg-gray-800 transition-colors duration-500 cursor-pointer"
               onClick={handleSignOut}

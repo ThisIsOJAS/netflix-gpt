@@ -39,8 +39,11 @@
 - GPT Search Bar
 - (FEATURE) Multi-Language feature on GPT Search Page
 - Integrate GPT/Gemini Api
+- fetched Gemini movie suggestions from TMDB
+- created gptSlice and added data to it
 - Re-used MovieList component to display AI results
 - Used Memoization to reduce repeated API calls
+- made the site responsive for phone and tab/laptop/tv
 
 ## Features
 
