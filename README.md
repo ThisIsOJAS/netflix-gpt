@@ -1,5 +1,15 @@
 # Netflix-GPT
 
+<img width="1901" height="865" alt="image" src="https://github.com/user-attachments/assets/8c676faf-11c1-4117-a787-c2deecf15811" />
+
+<img width="1903" height="867" alt="image" src="https://github.com/user-attachments/assets/19ef82d1-4e7e-46e6-9743-9d9a690b0229" />
+
+<img width="1904" height="860" alt="image" src="https://github.com/user-attachments/assets/bf9dbd4b-967f-40fa-a198-f5ed797d203a" />
+
+<img width="1901" height="867" alt="image" src="https://github.com/user-attachments/assets/1da4c386-8e08-4b85-a53d-44d2d91ee555" />
+
+
+
 - Created app with Vite
 - Configured Tailwind CSS
 - Built Header
