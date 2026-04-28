@@ -11,13 +11,13 @@ export const checkValidData = (name, email, password) => {
   // Name is not valid. Name should be 2-50 characters long and can only contain letters, apostrophes, hyphens, and spaces.
 
   const isEmailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-    email
+    email,
   );
   // Email ID is not valid
 
   const isPasswordValid =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,20}$/.test(
-      password
+      password,
     );
   //Invalid password. Your password must be 8–20 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character from @ # $ ! % * ? &.
 
@@ -27,27 +27,3 @@ export const checkValidData = (name, email, password) => {
 
   return null;
 };
-
-// User 1
-
-// Raju Boi
-// rajuboi@gmail.com
-// Rajuboi123#1
-
-// User 2
-
-// Alex Max
-// alexmax@gmail.com
-// Alexmax123#1
-
-// User 3
-
-// Ojas Gupta
-// netflix@ojas.com
-// Netflixojas123#1
-
-// User 4
-
-// Tom Cruise
-// tomcruise@gmail.com
-// Tomcruise123#1

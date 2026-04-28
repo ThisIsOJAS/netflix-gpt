@@ -138,6 +138,24 @@ const Login = () => {
           placeholder="Password"
           className="m-2 p-4 rounded-md border-2 border-gray-600"
         />
+        <p className="text-sm text-gray-400 mt-2 ml-2">
+          Demo purposes only. Please do not use your real credentials.
+        </p>
+        {isSignInForm && (
+          <div 
+            className="mx-2 mt-4 p-3 bg-gray-800 border border-gray-600 rounded-md text-sm text-gray-300 cursor-pointer hover:bg-gray-700 transition-colors"
+            onClick={() => {
+              if (email.current && password.current) {
+                email.current.value = "alexmax@gmail.com";
+                password.current.value = "Alexmax123#1";
+              }
+            }}
+          >
+            <p className="font-semibold mb-1 text-white">Click to autofill Guest Account:</p>
+            <p>Email: <span className="font-mono text-gray-100">alexmax@gmail.com</span></p>
+            <p>Password: <span className="font-mono text-gray-100">Alexmax123#1</span></p>
+          </div>
+        )}
         <p className="font-semibold text-lg p-2 text-red-600">{errorMessage}</p>
         <button
           className="m-2 p-2 bg-red-600 rounded-md cursor-pointer hover:bg-red-700 transition-colors duration-500"
@@ -150,8 +168,11 @@ const Login = () => {
           onClick={toggleSignInForm}
         >
           {isSignInForm
-            ? "New to Netflix ? Sign up Now"
-            : "Already a Netflix member? Sign In"}
+            ? "New to MovieGPT ? Sign up Now"
+            : "Already a member? Sign In"}
+        </p>
+        <p className="text-xs text-gray-500 mt-6 text-center px-4">
+          This is a personal portfolio project and is not affiliated with Netflix.
         </p>
       </form>
     </>
